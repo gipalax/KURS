@@ -1,0 +1,31 @@
+﻿<Page x:Class="KP.GroupTrainingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="GroupTrainingsPage">
+
+    <Grid Style="{StaticResource MainGridStyle}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Групповые тренировки" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,20"/>
+
+            <DataGrid x:Name="GroupTrainingsDataGrid" 
+                      AutoGenerateColumns="False"
+                      Height="300"
+                      Width="Auto"
+                      IsReadOnly="True"
+                      Margin="0,0,0,20">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding TrainingID}" Width="50"/>
+                    <DataGridTextColumn Header="ID Тренера" Binding="{Binding TrainerID}" Width="100"/>
+                    <DataGridTextColumn Header="ID Типа тренировки" Binding="{Binding TrainingTypeID}" Width="150"/>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding DateTime}" Width="150"/>
+                    <DataGridTextColumn Header="Кол-во людей" Binding="{Binding PeopleCount}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Content="Назад" Click="BackToAdmin_Click" Style="{StaticResource ButtonStyle}" Width="200"/>
+        </StackPanel>
+    </Grid>
+</Page>

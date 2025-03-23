@@ -1,0 +1,28 @@
+﻿<Page x:Class="KP.AccountantSalesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Продажи абонементов">
+
+    <Grid Style="{StaticResource MainGridStyle}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <TextBlock Text="Продажи абонементов" 
+                       Style="{StaticResource HeaderTextStyle}" 
+                       Margin="0,0,0,20"/>
+
+            <ListView Name="MembershipSalesListView" Style="{StaticResource ListViewStyle}" Height="300" Width="Auto" Margin="0,0,0,20">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID продажи" DisplayMemberBinding="{Binding SaleID}" Width="100"/>
+                        <GridViewColumn Header="Клиент ID" DisplayMemberBinding="{Binding ClientID}" Width="150"/>
+                        <GridViewColumn Header="Абонемент ID" DisplayMemberBinding="{Binding MembershipID}" Width="150"/>
+                        <GridViewColumn Header="Дата продажи" DisplayMemberBinding="{Binding SaleDate}" Width="150"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Content="Назад" Click="BackButton_Click" 
+                    Style="{StaticResource ButtonStyle}" Width="200"/>
+        </StackPanel>
+    </Grid>
+</Page>

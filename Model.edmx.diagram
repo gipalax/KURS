@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b889718c0ac84567817a49b1ff79e9e0" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ClientReview" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Club" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ClubService" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employee" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GroupTraining" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IndividualTraining" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Inventory" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Membership" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MembershipSale" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProvidedService" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TrainingType" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__ClientRev__Clien__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__ClientRev__ClubI__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Clients__RoleID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Individua__Clien__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Membershi__Clien__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__ProvidedS__Clien__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Employees__ClubI__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Inventory__ClubI__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__ProvidedS__Servi__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__GroupTrai__Train__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Individua__Train__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__ProvidedS__Emplo__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__GroupTrai__Train__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Membershi__Membe__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Users__RoleID__3A81B327" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

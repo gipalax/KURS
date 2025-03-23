@@ -1,0 +1,42 @@
+﻿<Page x:Class="KP.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KP"
+      mc:Ignorable="d" 
+      d:DesignHeight="761.25" d:DesignWidth="800"
+      Title="RegistrationPage">
+
+    <Grid Style="{StaticResource MainGridStyle}">
+        <Border Style="{StaticResource AuthBorderStyle}" Width="400">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Регистрация" Style="{StaticResource HeaderTextStyle}"/>
+
+                <TextBlock Text="Введите имя:" Style="{StaticResource LabelTextStyle}"/>
+                <TextBox x:Name="nameText" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Введите фамилию:" Style="{StaticResource LabelTextStyle}"/>
+                <TextBox x:Name="surnameText" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Придумайте логин:" Style="{StaticResource LabelTextStyle}"/>
+                <TextBox x:Name="loginText" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Введите email:" Style="{StaticResource LabelTextStyle}"/>
+                <TextBox x:Name="emailText" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Введите номер телефона:" Style="{StaticResource LabelTextStyle}"/>
+                <TextBox x:Name="phoneText" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Придумайте пароль:" Style="{StaticResource LabelTextStyle}"/>
+                <PasswordBox x:Name="passwordText" Style="{StaticResource PasswordBoxStyle}"/>
+
+                <TextBlock Text="Подтвердите пароль:" Style="{StaticResource LabelTextStyle}"/>
+                <PasswordBox x:Name="confirmPasswordText" Style="{StaticResource PasswordBoxStyle}"/>
+
+                <Button Content="Зарегистрироваться" Click="registerButton_Click" Style="{StaticResource ButtonStyle}" Width="200" Margin="0,20,0,10"/>
+                <Button Content="Выйти" Click="exitButton_Click" Style="{StaticResource ButtonStyle}" Width="200"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientReviews">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="ReviewText" Type="text" Nullable="false" />
+          <Property Name="ReviewDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clubs">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ClubServices">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Position" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ClubID" Type="int" />
+        </EntityType>
+        <EntityType Name="GroupTrainings">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainerID" Type="int" Nullable="false" />
+          <Property Name="TrainingTypeID" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="PeopleCount" Type="int" />
+        </EntityType>
+        <EntityType Name="IndividualTrainings">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainerID" Type="int" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="PeopleCount" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="InventoryID" />
+          </Key>
+          <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Memberships">
+          <Key>
+            <PropertyRef Name="MembershipID" />
+          </Key>
+          <Property Name="MembershipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DurationDays" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MembershipSales">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="MembershipID" Type="int" Nullable="false" />
+          <Property Name="SaleDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProvidedServices">
+          <Key>
+            <PropertyRef Name="ProvidedServiceID" />
+          </Key>
+          <Property Name="ProvidedServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrainingTypes">
+          <Key>
+            <PropertyRef Name="TrainingTypeID" />
+          </Key>
+          <Property Name="TrainingTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ClientRev__Clien__628FA481">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ClientReviews" Type="Self.ClientReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ClientReviews">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClientRev__ClubI__6383C8BA">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+          <End Role="ClientReviews" Type="Self.ClientReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="ClientReviews">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clients__RoleID__44FF419A">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__ClubI__403A8C7D">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupTrai__Train__5EBF139D">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="GroupTrainings" Type="Self.GroupTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="GroupTrainings">
+              <PropertyRef Name="TrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupTrai__Train__5FB337D6">
+          <End Role="TrainingTypes" Type="Self.TrainingTypes" Multiplicity="1" />
+          <End Role="GroupTrainings" Type="Self.GroupTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingTypes">
+              <PropertyRef Name="TrainingTypeID" />
+            </Principal>
+            <Dependent Role="GroupTrainings">
+              <PropertyRef Name="TrainingTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Individua__Clien__59063A47">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="IndividualTrainings" Type="Self.IndividualTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="IndividualTrainings">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Individua__Train__5812160E">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="IndividualTrainings" Type="Self.IndividualTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="IndividualTrainings">
+              <PropertyRef Name="TrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventory__ClubI__4D94879B">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Membershi__Clien__49C3F6B7">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="MembershipSales" Type="Self.MembershipSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="MembershipSales">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Membershi__Membe__4AB81AF0">
+          <End Role="Memberships" Type="Self.Memberships" Multiplicity="1" />
+          <End Role="MembershipSales" Type="Self.MembershipSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memberships">
+              <PropertyRef Name="MembershipID" />
+            </Principal>
+            <Dependent Role="MembershipSales">
+              <PropertyRef Name="MembershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProvidedS__Clien__52593CB8">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ProvidedServices" Type="Self.ProvidedServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ProvidedServices">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProvidedS__Emplo__5441852A">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ProvidedServices" Type="Self.ProvidedServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ProvidedServices">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProvidedS__Servi__534D60F1">
+          <End Role="ClubServices" Type="Self.ClubServices" Multiplicity="1" />
+          <End Role="ProvidedServices" Type="Self.ProvidedServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubServices">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="ProvidedServices">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__RoleID__3A81B327">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="ClientReviews" EntityType="Self.ClientReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClubServices" EntityType="Self.ClubServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupTrainings" EntityType="Self.GroupTrainings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndividualTrainings" EntityType="Self.IndividualTrainings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Memberships" EntityType="Self.Memberships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MembershipSales" EntityType="Self.MembershipSales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProvidedServices" EntityType="Self.ProvidedServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainingTypes" EntityType="Self.TrainingTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ClientRev__Clien__628FA481" Association="Self.FK__ClientRev__Clien__628FA481">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientReviews" EntitySet="ClientReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientRev__ClubI__6383C8BA" Association="Self.FK__ClientRev__ClubI__6383C8BA">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="ClientReviews" EntitySet="ClientReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clients__RoleID__44FF419A" Association="Self.FK__Clients__RoleID__44FF419A">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__ClubI__403A8C7D" Association="Self.FK__Employees__ClubI__403A8C7D">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupTrai__Train__5EBF139D" Association="Self.FK__GroupTrai__Train__5EBF139D">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="GroupTrainings" EntitySet="GroupTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupTrai__Train__5FB337D6" Association="Self.FK__GroupTrai__Train__5FB337D6">
+            <End Role="TrainingTypes" EntitySet="TrainingTypes" />
+            <End Role="GroupTrainings" EntitySet="GroupTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Individua__Clien__59063A47" Association="Self.FK__Individua__Clien__59063A47">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="IndividualTrainings" EntitySet="IndividualTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Individua__Train__5812160E" Association="Self.FK__Individua__Train__5812160E">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="IndividualTrainings" EntitySet="IndividualTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventory__ClubI__4D94879B" Association="Self.FK__Inventory__ClubI__4D94879B">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Membershi__Clien__49C3F6B7" Association="Self.FK__Membershi__Clien__49C3F6B7">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="MembershipSales" EntitySet="MembershipSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Membershi__Membe__4AB81AF0" Association="Self.FK__Membershi__Membe__4AB81AF0">
+            <End Role="Memberships" EntitySet="Memberships" />
+            <End Role="MembershipSales" EntitySet="MembershipSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProvidedS__Clien__52593CB8" Association="Self.FK__ProvidedS__Clien__52593CB8">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ProvidedServices" EntitySet="ProvidedServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProvidedS__Emplo__5441852A" Association="Self.FK__ProvidedS__Emplo__5441852A">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ProvidedServices" EntitySet="ProvidedServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProvidedS__Servi__534D60F1" Association="Self.FK__ProvidedS__Servi__534D60F1">
+            <End Role="ClubServices" EntitySet="ClubServices" />
+            <End Role="ProvidedServices" EntitySet="ProvidedServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__RoleID__3A81B327" Association="Self.FK__Users__RoleID__3A81B327">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientReview">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="ReviewText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReviewDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__ClientRev__Clien__628FA481" FromRole="ClientReviews" ToRole="Clients" />
+          <NavigationProperty Name="Club" Relationship="Self.FK__ClientRev__ClubI__6383C8BA" FromRole="ClientReviews" ToRole="Clubs" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClientReviews" Relationship="Self.FK__ClientRev__Clien__628FA481" FromRole="Clients" ToRole="ClientReviews" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Clients__RoleID__44FF419A" FromRole="Clients" ToRole="Roles" />
+          <NavigationProperty Name="IndividualTrainings" Relationship="Self.FK__Individua__Clien__59063A47" FromRole="Clients" ToRole="IndividualTrainings" />
+          <NavigationProperty Name="MembershipSales" Relationship="Self.FK__Membershi__Clien__49C3F6B7" FromRole="Clients" ToRole="MembershipSales" />
+          <NavigationProperty Name="ProvidedServices" Relationship="Self.FK__ProvidedS__Clien__52593CB8" FromRole="Clients" ToRole="ProvidedServices" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientReviews" Relationship="Self.FK__ClientRev__ClubI__6383C8BA" FromRole="Clubs" ToRole="ClientReviews" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__ClubI__403A8C7D" FromRole="Clubs" ToRole="Employees" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK__Inventory__ClubI__4D94879B" FromRole="Clubs" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="ClubService">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ProvidedServices" Relationship="Self.FK__ProvidedS__Servi__534D60F1" FromRole="ClubServices" ToRole="ProvidedServices" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" />
+          <NavigationProperty Name="Club" Relationship="Self.FK__Employees__ClubI__403A8C7D" FromRole="Employees" ToRole="Clubs" />
+          <NavigationProperty Name="GroupTrainings" Relationship="Self.FK__GroupTrai__Train__5EBF139D" FromRole="Employees" ToRole="GroupTrainings" />
+          <NavigationProperty Name="IndividualTrainings" Relationship="Self.FK__Individua__Train__5812160E" FromRole="Employees" ToRole="IndividualTrainings" />
+          <NavigationProperty Name="ProvidedServices" Relationship="Self.FK__ProvidedS__Emplo__5441852A" FromRole="Employees" ToRole="ProvidedServices" />
+        </EntityType>
+        <EntityType Name="GroupTraining">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainerID" Type="Int32" Nullable="false" />
+          <Property Name="TrainingTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PeopleCount" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__GroupTrai__Train__5EBF139D" FromRole="GroupTrainings" ToRole="Employees" />
+          <NavigationProperty Name="TrainingType" Relationship="Self.FK__GroupTrai__Train__5FB337D6" FromRole="GroupTrainings" ToRole="TrainingTypes" />
+        </EntityType>
+        <EntityType Name="IndividualTraining">
+          <Key>
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="TrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainerID" Type="Int32" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PeopleCount" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Individua__Clien__59063A47" FromRole="IndividualTrainings" ToRole="Clients" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Individua__Train__5812160E" FromRole="IndividualTrainings" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="InventoryID" />
+          </Key>
+          <Property Name="InventoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="Self.FK__Inventory__ClubI__4D94879B" FromRole="Inventory" ToRole="Clubs" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="MembershipID" />
+          </Key>
+          <Property Name="MembershipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DurationDays" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MembershipSales" Relationship="Self.FK__Membershi__Membe__4AB81AF0" FromRole="Memberships" ToRole="MembershipSales" />
+        </EntityType>
+        <EntityType Name="MembershipSale">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="MembershipID" Type="Int32" Nullable="false" />
+          <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Membershi__Clien__49C3F6B7" FromRole="MembershipSales" ToRole="Clients" />
+          <NavigationProperty Name="Membership" Relationship="Self.FK__Membershi__Membe__4AB81AF0" FromRole="MembershipSales" ToRole="Memberships" />
+        </EntityType>
+        <EntityType Name="ProvidedService">
+          <Key>
+            <PropertyRef Name="ProvidedServiceID" />
+          </Key>
+          <Property Name="ProvidedServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__ProvidedS__Clien__52593CB8" FromRole="ProvidedServices" ToRole="Clients" />
+          <NavigationProperty Name="ClubService" Relationship="Self.FK__ProvidedS__Servi__534D60F1" FromRole="ProvidedServices" ToRole="ClubServices" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__ProvidedS__Emplo__5441852A" FromRole="ProvidedServices" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__RoleID__44FF419A" FromRole="Roles" ToRole="Clients" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleID__3A81B327" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="TrainingType">
+          <Key>
+            <PropertyRef Name="TrainingTypeID" />
+          </Key>
+          <Property Name="TrainingTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GroupTrainings" Relationship="Self.FK__GroupTrai__Train__5FB337D6" FromRole="TrainingTypes" ToRole="GroupTrainings" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleID__3A81B327" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK__ClientRev__Clien__628FA481">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="ClientReviews" Type="Self.ClientReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ClientReviews">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClientRev__ClubI__6383C8BA">
+          <End Role="Clubs" Type="Self.Club" Multiplicity="1" />
+          <End Role="ClientReviews" Type="Self.ClientReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="ClientReviews">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clients__RoleID__44FF419A">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Individua__Clien__59063A47">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="IndividualTrainings" Type="Self.IndividualTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="IndividualTrainings">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Membershi__Clien__49C3F6B7">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="MembershipSales" Type="Self.MembershipSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="MembershipSales">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProvidedS__Clien__52593CB8">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="ProvidedServices" Type="Self.ProvidedService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ProvidedServices">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__ClubI__403A8C7D">
+          <End Role="Clubs" Type="Self.Club" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventory__ClubI__4D94879B">
+          <End Role="Clubs" Type="Self.Club" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProvidedS__Servi__534D60F1">
+          <End Role="ClubServices" Type="Self.ClubService" Multiplicity="1" />
+          <End Role="ProvidedServices" Type="Self.ProvidedService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClubServices">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="ProvidedServices">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupTrai__Train__5EBF139D">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="GroupTrainings" Type="Self.GroupTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="GroupTrainings">
+              <PropertyRef Name="TrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Individua__Train__5812160E">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="IndividualTrainings" Type="Self.IndividualTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="IndividualTrainings">
+              <PropertyRef Name="TrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProvidedS__Emplo__5441852A">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ProvidedServices" Type="Self.ProvidedService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ProvidedServices">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupTrai__Train__5FB337D6">
+          <End Role="TrainingTypes" Type="Self.TrainingType" Multiplicity="1" />
+          <End Role="GroupTrainings" Type="Self.GroupTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingTypes">
+              <PropertyRef Name="TrainingTypeID" />
+            </Principal>
+            <Dependent Role="GroupTrainings">
+              <PropertyRef Name="TrainingTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Membershi__Membe__4AB81AF0">
+          <End Role="Memberships" Type="Self.Membership" Multiplicity="1" />
+          <End Role="MembershipSales" Type="Self.MembershipSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memberships">
+              <PropertyRef Name="MembershipID" />
+            </Principal>
+            <Dependent Role="MembershipSales">
+              <PropertyRef Name="MembershipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__RoleID__3A81B327">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientReviews" EntityType="Self.ClientReview" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Clubs" EntityType="Self.Club" />
+          <EntitySet Name="ClubServices" EntityType="Self.ClubService" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="GroupTrainings" EntityType="Self.GroupTraining" />
+          <EntitySet Name="IndividualTrainings" EntityType="Self.IndividualTraining" />
+          <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+          <EntitySet Name="Memberships" EntityType="Self.Membership" />
+          <EntitySet Name="MembershipSales" EntityType="Self.MembershipSale" />
+          <EntitySet Name="ProvidedServices" EntityType="Self.ProvidedService" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="TrainingTypes" EntityType="Self.TrainingType" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__ClientRev__Clien__628FA481" Association="Self.FK__ClientRev__Clien__628FA481">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientReviews" EntitySet="ClientReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientRev__ClubI__6383C8BA" Association="Self.FK__ClientRev__ClubI__6383C8BA">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="ClientReviews" EntitySet="ClientReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clients__RoleID__44FF419A" Association="Self.FK__Clients__RoleID__44FF419A">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Individua__Clien__59063A47" Association="Self.FK__Individua__Clien__59063A47">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="IndividualTrainings" EntitySet="IndividualTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Membershi__Clien__49C3F6B7" Association="Self.FK__Membershi__Clien__49C3F6B7">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="MembershipSales" EntitySet="MembershipSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProvidedS__Clien__52593CB8" Association="Self.FK__ProvidedS__Clien__52593CB8">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ProvidedServices" EntitySet="ProvidedServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__ClubI__403A8C7D" Association="Self.FK__Employees__ClubI__403A8C7D">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventory__ClubI__4D94879B" Association="Self.FK__Inventory__ClubI__4D94879B">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProvidedS__Servi__534D60F1" Association="Self.FK__ProvidedS__Servi__534D60F1">
+            <End Role="ClubServices" EntitySet="ClubServices" />
+            <End Role="ProvidedServices" EntitySet="ProvidedServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupTrai__Train__5EBF139D" Association="Self.FK__GroupTrai__Train__5EBF139D">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="GroupTrainings" EntitySet="GroupTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Individua__Train__5812160E" Association="Self.FK__Individua__Train__5812160E">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="IndividualTrainings" EntitySet="IndividualTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProvidedS__Emplo__5441852A" Association="Self.FK__ProvidedS__Emplo__5441852A">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ProvidedServices" EntitySet="ProvidedServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupTrai__Train__5FB337D6" Association="Self.FK__GroupTrai__Train__5FB337D6">
+            <End Role="TrainingTypes" EntitySet="TrainingTypes" />
+            <End Role="GroupTrainings" EntitySet="GroupTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Membershi__Membe__4AB81AF0" Association="Self.FK__Membershi__Membe__4AB81AF0">
+            <End Role="Memberships" EntitySet="Memberships" />
+            <End Role="MembershipSales" EntitySet="MembershipSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__RoleID__3A81B327" Association="Self.FK__Users__RoleID__3A81B327">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="ClientReviews">
+            <EntityTypeMapping TypeName="Model.ClientReview">
+              <MappingFragment StoreEntitySet="ClientReviews">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Model.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clubs">
+            <EntityTypeMapping TypeName="Model.Club">
+              <MappingFragment StoreEntitySet="Clubs">
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClubServices">
+            <EntityTypeMapping TypeName="Model.ClubService">
+              <MappingFragment StoreEntitySet="ClubServices">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Model.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupTrainings">
+            <EntityTypeMapping TypeName="Model.GroupTraining">
+              <MappingFragment StoreEntitySet="GroupTrainings">
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="TrainerID" ColumnName="TrainerID" />
+                <ScalarProperty Name="TrainingTypeID" ColumnName="TrainingTypeID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="PeopleCount" ColumnName="PeopleCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualTrainings">
+            <EntityTypeMapping TypeName="Model.IndividualTraining">
+              <MappingFragment StoreEntitySet="IndividualTrainings">
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="TrainerID" ColumnName="TrainerID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="PeopleCount" ColumnName="PeopleCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="Model.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memberships">
+            <EntityTypeMapping TypeName="Model.Membership">
+              <MappingFragment StoreEntitySet="Memberships">
+                <ScalarProperty Name="MembershipID" ColumnName="MembershipID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DurationDays" ColumnName="DurationDays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembershipSales">
+            <EntityTypeMapping TypeName="Model.MembershipSale">
+              <MappingFragment StoreEntitySet="MembershipSales">
+                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="MembershipID" ColumnName="MembershipID" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProvidedServices">
+            <EntityTypeMapping TypeName="Model.ProvidedService">
+              <MappingFragment StoreEntitySet="ProvidedServices">
+                <ScalarProperty Name="ProvidedServiceID" ColumnName="ProvidedServiceID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Model.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingTypes">
+            <EntityTypeMapping TypeName="Model.TrainingType">
+              <MappingFragment StoreEntitySet="TrainingTypes">
+                <ScalarProperty Name="TrainingTypeID" ColumnName="TrainingTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

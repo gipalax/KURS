@@ -1,0 +1,29 @@
+﻿<Page x:Class="KP.AccountantReportsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Финансовые отчеты">
+
+    <Grid Style="{StaticResource MainGridStyle}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <TextBlock Text="Финансовые отчеты" 
+                       Style="{StaticResource HeaderTextStyle}" 
+                       Margin="0,0,0,20"/>
+
+            <!-- ListView для отображения отчетов -->
+            <ListView Name="ReportsListView" Height="250" Width="550" 
+                      Style="{StaticResource ListViewStyle}" Margin="0,0,0,20">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Показатель" DisplayMemberBinding="{Binding Title}" Width="300"/>
+                        <GridViewColumn Header="Сумма (₽)" DisplayMemberBinding="{Binding Amount}" Width="200"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!-- Кнопка Назад -->
+            <Button Content="Назад" Click="BackButton_Click" 
+                    Style="{StaticResource ButtonStyle}" Width="200"/>
+        </StackPanel>
+    </Grid>
+</Page>
