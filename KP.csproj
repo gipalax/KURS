@@ -44,7 +44,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -79,20 +81,8 @@
     <Compile Include="Accountant\AccountantServicesPage.xaml.cs">
       <DependentUpon>AccountantServicesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage\AccountantPage.xaml.cs">
-      <DependentUpon>AccountantPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPage\AdminPage.xaml.cs">
-      <DependentUpon>AdminPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AutharizationPage.xaml.cs">
-      <DependentUpon>AutharizationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MainPage\ClientPage.xaml.cs">
-      <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClientReview.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -102,9 +92,6 @@
     </Compile>
     <Compile Include="ClubService.cs">
       <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MainPage\CoachPage.xaml.cs">
-      <DependentUpon>CoachPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -118,29 +105,23 @@
     <Compile Include="Inventory.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="MainPage\AccountantPage.xaml.cs">
+      <DependentUpon>AccountantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutharizationPage.xaml.cs">
+      <DependentUpon>AutharizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage\ClientPage.xaml.cs">
+      <DependentUpon>ClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage\CoachPage.xaml.cs">
+      <DependentUpon>CoachPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage\ManagerPage.xaml.cs">
       <DependentUpon>ManagerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Membership.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MembershipSale.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ClubServicesPage.xaml.cs">
       <DependentUpon>ClubServicesPage.xaml</DependentUpon>
@@ -171,6 +152,36 @@
     </Compile>
     <Compile Include="Admin\ServicesPage.xaml.cs">
       <DependentUpon>ServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerReportsPage.xaml.cs">
+      <DependentUpon>ManagerReportsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerSalesPage.xaml.cs">
+      <DependentUpon>ManagerSalesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerClientsPage.xaml.cs">
+      <DependentUpon>ManagerClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Membership.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipSale.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="ProvidedService.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -283,6 +294,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Manager\ManagerReportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerSalesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerClientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -324,21 +347,20 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Client\" />
+    <Folder Include="Coach\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\" />
-    <Folder Include="Coach\" />
-    <Folder Include="Manager\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

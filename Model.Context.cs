@@ -19,7 +19,13 @@ namespace KP
             : base("name=Entities1")
         {
         }
-    
+        private static Entities1 _context;
+        public static Entities1 Getcontext()
+        {
+            if (_context == null) _context = new Entities1();
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

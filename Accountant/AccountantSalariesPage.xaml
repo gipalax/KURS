@@ -17,39 +17,24 @@
                       Style="{StaticResource ListViewStyle}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding EmployeeID}" Width="50"/>
-                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Position}" Width="100"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="120"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="120"/>
+                        <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Position}" Width="150"/>
                         <GridViewColumn Header="Зарплата" DisplayMemberBinding="{Binding Salary}" Width="100"/>
                         <GridViewColumn Header="ID клуба" DisplayMemberBinding="{Binding ClubID}" Width="80"/>
                     </GridView>
                 </ListView.View>
             </ListView>
 
-            <!-- Поля для редактирования -->
+            <!-- Поле для редактирования зарплаты -->
             <StackPanel Orientation="Vertical" Margin="0,20,0,0">
-                <TextBlock Text="Фамилия:" Style="{StaticResource LabelTextStyle}"/>
-                <TextBox x:Name="LastNameBox" Width="200"/>
-
-                <TextBlock Text="Имя:" Style="{StaticResource LabelTextStyle}"/>
-                <TextBox x:Name="FirstNameBox" Width="200"/>
-
-                <TextBlock Text="Должность:" Style="{StaticResource LabelTextStyle}"/>
-                <TextBox x:Name="PositionBox" Width="200"/>
-
                 <TextBlock Text="Зарплата:" Style="{StaticResource LabelTextStyle}"/>
                 <TextBox x:Name="SalaryBox" Width="200"/>
-
-                <TextBlock Text="ID клуба:" Style="{StaticResource LabelTextStyle}"/>
-                <TextBox x:Name="ClubIDBox" Width="200"/>
             </StackPanel>
 
             <!-- Кнопки управления -->
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                <Button Content="Добавить" Click="AddEmployee_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
-                <Button Content="Изменить" Click="EditEmployee_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
-                <Button Content="Удалить" Click="DeleteEmployee_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
+                <Button Content="Сохранить" Click="EditSalary_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
                 <Button Content="Назад" Click="BackButton_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
             </StackPanel>
 
