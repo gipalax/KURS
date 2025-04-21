@@ -10,12 +10,14 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Групповые тренировки" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,20"/>
 
-            <DataGrid x:Name="GroupTrainingsDataGrid" 
-                      AutoGenerateColumns="False"
-                      Height="300"
-                      Width="Auto"
-                      IsReadOnly="True"
-                      Margin="0,0,0,20">
+            <DataGrid x:Name="GroupTrainingsDataGrid"
+          AutoGenerateColumns="False"
+          Style="{StaticResource DataGridStyle}"
+          Height="250"
+          Width="Auto">
+                <DataGrid.ColumnHeaderStyle>
+                    <StaticResource ResourceKey="DataGridColumnHeaderStyle"/>
+                </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding TrainingID}" Width="50"/>
                     <DataGridTextColumn Header="ID Тренера" Binding="{Binding TrainerID}" Width="100"/>
@@ -24,6 +26,7 @@
                     <DataGridTextColumn Header="Кол-во людей" Binding="{Binding PeopleCount}" Width="100"/>
                 </DataGrid.Columns>
             </DataGrid>
+
 
             <Button Content="Назад" Click="BackToAdmin_Click" Style="{StaticResource ButtonStyle}" Width="200"/>
         </StackPanel>

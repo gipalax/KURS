@@ -12,17 +12,20 @@
             <TextBlock Text="Инвентарь" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,10"/>
 
             <DataGrid x:Name="InventoryDataGrid" 
-                      AutoGenerateColumns="False" 
-                      IsReadOnly="True"
-                      SelectionChanged="InventoryDataGrid_SelectionChanged"
-                      ItemsSource="{Binding}">
+          AutoGenerateColumns="False" 
+          Style="{StaticResource DataGridStyle}"
+          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+          IsReadOnly="True"
+          SelectionChanged="InventoryDataGrid_SelectionChanged"
+          ItemsSource="{Binding}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding InventoryID}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" />
-                    <DataGridTextColumn Header="ID клуба" Binding="{Binding ClubID}" />
+                    <DataGridTextColumn Header="ID" Binding="{Binding InventoryID}" Width="50"/>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="200"/>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="100"/>
+                    <DataGridTextColumn Header="ID клуба" Binding="{Binding ClubID}" Width="100"/>
                 </DataGrid.Columns>
             </DataGrid>
+
 
             <StackPanel Margin="10">
                 <TextBlock Text="Название:"/>

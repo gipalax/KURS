@@ -12,7 +12,13 @@
             <TextBlock Text="Абонементы" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,20"/>
 
             <!-- Таблица -->
-            <DataGrid x:Name="MembershipsDataGrid" AutoGenerateColumns="False" Height="200" Width="Auto" SelectionChanged="MembershipsDataGrid_SelectionChanged">
+            <DataGrid x:Name="MembershipsDataGrid" 
+          AutoGenerateColumns="False" 
+          Style="{StaticResource DataGridStyle}" 
+          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+          Height="200" 
+          Width="Auto" 
+          SelectionChanged="MembershipsDataGrid_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding MembershipID}" Width="50" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="150"/>
@@ -20,6 +26,7 @@
                     <DataGridTextColumn Header="Срок (дней)" Binding="{Binding DurationDays}" Width="100"/>
                 </DataGrid.Columns>
             </DataGrid>
+
 
             <!-- Поля ввода -->
             <StackPanel Orientation="Vertical" Margin="0,20,0,0">

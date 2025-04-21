@@ -12,7 +12,7 @@
 
             <!-- ListView для отображения отчетов -->
             <ListView Name="ReportsListView" Height="250" Width="550" 
-                      Style="{StaticResource ListViewStyle}" Margin="0,0,0,20">
+          Style="{StaticResource ListViewStyle}" Margin="0,0,0,20">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Показатель" DisplayMemberBinding="{Binding Title}" Width="300"/>

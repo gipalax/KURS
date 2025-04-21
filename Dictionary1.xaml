@@ -93,12 +93,31 @@
 
     <!-- Стиль для ListView -->
     <Style x:Key="ListViewStyle" TargetType="ListView">
-        <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="White" />
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="#FFFCEB8F" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
+
 
     <!-- Стиль для ComboBox -->
     <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
@@ -129,17 +148,21 @@
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Margin" Value="10"/>
-        <Setter Property="RowBackground" Value="Transparent"/>
-        <Setter Property="AlternatingRowBackground" Value="#FAFAFA"/>
+        <Setter Property="RowBackground" Value="White"/>
+        <Setter Property="AlternatingRowBackground" Value="#FFFCEB8F"/>
         <Setter Property="GridLinesVisibility" Value="None"/>
-        <Setter Property="HeadersVisibility" Value="Column"/>
+        <Setter Property="HeadersVisibility" Value="All"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
         <Setter Property="CanUserAddRows" Value="False"/>
         <Setter Property="CanUserDeleteRows" Value="False"/>
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="SelectionMode" Value="Single"/>
         <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="RowHeaderWidth" Value="0"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
     </Style>
+
 
     <!-- Стиль для заголовков столбцов DataGrid -->
     <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">

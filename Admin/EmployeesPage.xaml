@@ -11,8 +11,15 @@
             <TextBlock Text="Сотрудники" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,20"/>
 
             <!-- Таблица -->
-            <DataGrid x:Name="EmployeesDataGrid" AutoGenerateColumns="False" Height="250" Width="Auto"
-                      SelectionChanged="EmployeesDataGrid_SelectionChanged">
+            <DataGrid x:Name="EmployeesDataGrid"
+          AutoGenerateColumns="False"
+          Style="{StaticResource DataGridStyle}"
+          SelectionChanged="EmployeesDataGrid_SelectionChanged"
+          Height="250"
+          Width="Auto">
+                <DataGrid.ColumnHeaderStyle>
+                    <StaticResource ResourceKey="DataGridColumnHeaderStyle"/>
+                </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding EmployeeID}" Width="50" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="150"/>
@@ -25,6 +32,7 @@
                     <DataGridTextColumn Header="ID Клуба" Binding="{Binding ClubID}" Width="80"/>
                 </DataGrid.Columns>
             </DataGrid>
+
 
             <!-- Поля ввода -->
             <StackPanel Orientation="Vertical" Margin="0,20,0,0">
