@@ -2,131 +2,89 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace KP
 {
     public partial class ManagerClientsPage : Page
     {
-        private Entities1 _db = new Entities1();
-        private User _currentUser;
-        private int _selectedClientId = -1;
+        private User _user;
 
         public ManagerClientsPage(User user)
         {
             InitializeComponent();
-            _currentUser = user;
-            LoadClients();
+            _user = user;
+            UpdateClients();
         }
 
-        private void LoadClients()
+        private void UpdateClients()
         {
-            try
+            var clients = Entities1.Getcontext().Clients.ToList();
+
+            if (!string.IsNullOrWhiteSpace(SearchBox.Text))
             {
-                ClientsGrid.ItemsSource = _db.Clients.ToList();
+                string searchText = SearchBox.Text.ToLower();
+                clients = clients.Where(c =>
+                    (!string.IsNullOrEmpty(c.FirstName) && c.FirstName.ToLower().Contains(searchText)) ||
+                    (!string.IsNullOrEmpty(c.LastName) && c.LastName.ToLower().Contains(searchText)) ||
+                    (!string.IsNullOrEmpty(c.Email) && c.Email.ToLower().Contains(searchText)) ||
+                    (!string.IsNullOrEmpty(c.PhoneNumber) && c.PhoneNumber.Contains(searchText))
+                ).ToList();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки клиентов: {ex.Message}");
-            }
+
+            ClientsDataGrid.ItemsSource = clients; // Обратите внимание: ClientsDataGrid вместо ClientsGrid
         }
 
-        private void SearchClient_Click(object sender, RoutedEventArgs e)
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var searchText = SearchBox.Text.ToLower();
-            ClientsGrid.ItemsSource = _db.Clients
-                .Where(c => c.FirstName.ToLower().Contains(searchText) ||
-                           c.LastName.ToLower().Contains(searchText) ||
-                           c.PhoneNumber.Contains(searchText))
-                .ToList();
-        }
-
-        private void ClientsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ClientsGrid.SelectedItem is Client selectedClient)
-            {
-                _selectedClientId = selectedClient.ClientID;
-                FirstNameBox.Text = selectedClient.FirstName;
-                LastNameBox.Text = selectedClient.LastName;
-                PhoneBox.Text = selectedClient.PhoneNumber;
-                EmailBox.Text = selectedClient.Email;
-            }
+            UpdateClients();
         }
 
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var newClient = new Client
-                {
-                    FirstName = FirstNameBox.Text,
-                    LastName = LastNameBox.Text,
-                    PhoneNumber = PhoneBox.Text,
-                    Email = EmailBox.Text,
-                    RoleID = 4 // Предполагаем, что 4 - это ID роли "Клиент"
-                };
-
-                _db.Clients.Add(newClient);
-                _db.SaveChanges();
-                LoadClients();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка добавления: {ex.Message}");
-            }
+            NavigationService.Navigate(new ManagerAddEditClientPage(null, _user));
         }
 
-        private void UpdateClient_Click(object sender, RoutedEventArgs e)
+        private void EditClient_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedClientId == -1) return;
-
-            try
+            if (ClientsDataGrid.SelectedItem is Client selected)
             {
-                var client = _db.Clients.First(c => c.ClientID == _selectedClientId);
-                client.FirstName = FirstNameBox.Text;
-                client.LastName = LastNameBox.Text;
-                client.PhoneNumber = PhoneBox.Text;
-                client.Email = EmailBox.Text;
-
-                _db.SaveChanges();
-                LoadClients();
+                NavigationService.Navigate(new ManagerAddEditClientPage(selected, _user));
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Ошибка обновления: {ex.Message}");
+                MessageBox.Show("Выберите клиента для редактирования.");
             }
         }
 
         private void DeleteClient_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedClientId == -1) return;
-
-            try
+            if (ClientsDataGrid.SelectedItem is Client selected)
             {
-                var client = _db.Clients.First(c => c.ClientID == _selectedClientId);
-                _db.Clients.Remove(client);
-                _db.SaveChanges();
-                LoadClients();
-                ClearFields();
+                if (MessageBox.Show($"Удалить клиента {selected.FirstName} {selected.LastName}?",
+                    "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        Entities1.Getcontext().Clients.Remove(selected);
+                        Entities1.Getcontext().SaveChanges();
+                        UpdateClients();
+                        MessageBox.Show("Клиент удалён.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка при удалении: " + ex.InnerException?.Message);
+                    }
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Ошибка удаления: {ex.Message}");
+                MessageBox.Show("Выберите клиента для удаления.");
             }
         }
-
-        private void ClearFields()
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            FirstNameBox.Text = "";
-            LastNameBox.Text = "";
-            PhoneBox.Text = "";
-            EmailBox.Text = "";
-            _selectedClientId = -1;
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ManagerPage(_currentUser));
+            NavigationService.GoBack();
         }
     }
 }

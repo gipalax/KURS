@@ -6,29 +6,37 @@ namespace KP
 {
     public partial class ManagerPage : Page
     {
-        private readonly User _currentUser;
+        private User _user;
 
-        public ManagerPage(User user)
+        public ManagerPage(User user) 
         {
             InitializeComponent();
-            _currentUser = user;
+            _user = user;
         }
 
-        // Навигация
-        private void Clients_Click(object sender, RoutedEventArgs e)
-            => NavigationService.Navigate(new ManagerClientsPage(_currentUser));
+        private void ClientsPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManagerClientsPage(_user));
+        }
 
-        private void Sales_Click(object sender, RoutedEventArgs e)
-            => NavigationService.Navigate(new ManagerSalesPage(_currentUser));
+        private void ManagerMembershipSalesPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManagerMembershipSalesPage(_user));
+        }
 
-        /*private void Schedule_Click(object sender, RoutedEventArgs e)
-            => NavigationService.Navigate(new ManagerSchedulePage(_currentUser));
+        private void TrainingsPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManagerTrainingsPage(_user));
+        }
 
-        private void Reports_Click(object sender, RoutedEventArgs e)
-            => NavigationService.Navigate(new ManagerReportsPage(_currentUser));*/
+        private void FeedbackPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManagerFeedbackPage(_user));
+        }
 
-        // Возврат на страницу авторизации
-        private void BackToAuth_Click(object sender, RoutedEventArgs e)
-            => NavigationService.Navigate(new AutharizationPage());
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AutharizationPage());
+        }
     }
 }

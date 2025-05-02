@@ -93,6 +93,36 @@
     <Compile Include="ClubService.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Coach\TrainerAddEditGroupTrainingPage.xaml.cs">
+      <DependentUpon>TrainerAddEditGroupTrainingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerAddEditServiceRegistrationPage.xaml.cs">
+      <DependentUpon>TrainerAddEditServiceRegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerAddEditTrainingPage.xaml.cs">
+      <DependentUpon>TrainerAddEditTrainingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerAddEditTrainingTypesPage.xaml.cs">
+      <DependentUpon>TrainerAddEditTrainingTypesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerClientReviewsPage.xaml.cs">
+      <DependentUpon>TrainerClientReviewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerClubServicesPage.xaml.cs">
+      <DependentUpon>TrainerClubServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerGroupTrainingsPage.xaml.cs">
+      <DependentUpon>TrainerGroupTrainingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerServiceRegistrationsPage.xaml.cs">
+      <DependentUpon>TrainerServiceRegistrationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerTrainingsPage.xaml.cs">
+      <DependentUpon>TrainerTrainingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerTrainingTypesPage.xaml.cs">
+      <DependentUpon>TrainerTrainingTypesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -153,14 +183,32 @@
     <Compile Include="Admin\ServicesPage.xaml.cs">
       <DependentUpon>ServicesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager\ManagerReportsPage.xaml.cs">
-      <DependentUpon>ManagerReportsPage.xaml</DependentUpon>
+    <Compile Include="Manager\ManagerAddEditClientPage.xaml.cs">
+      <DependentUpon>ManagerAddEditClientPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager\ManagerSalesPage.xaml.cs">
-      <DependentUpon>ManagerSalesPage.xaml</DependentUpon>
+    <Compile Include="Manager\ManagerAddEditGroupTrainingPage.xaml.cs">
+      <DependentUpon>ManagerAddEditGroupTrainingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerAddEditIndividualTrainingPage.xaml.cs">
+      <DependentUpon>ManagerAddEditIndividualTrainingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerAddEditMembershipSalePage.xaml.cs">
+      <DependentUpon>ManagerAddEditMembershipSalePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager\ManagerClientsPage.xaml.cs">
       <DependentUpon>ManagerClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerFeedbackPage.xaml.cs">
+      <DependentUpon>ManagerFeedbackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerGroupTrainingsPage.xaml.cs">
+      <DependentUpon>ManagerGroupTrainingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerMembershipSalesPage.xaml.cs">
+      <DependentUpon>ManagerMembershipSalesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerTrainingsPage.xaml.cs">
+      <DependentUpon>ManagerTrainingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Membership.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -192,6 +240,12 @@
     <Compile Include="Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Coach\TrainerClientsPage.xaml.cs">
+      <DependentUpon>TrainerClientsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrainingType.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -211,6 +265,46 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Accountant\AccountantServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerAddEditGroupTrainingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerAddEditServiceRegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerAddEditTrainingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerAddEditTrainingTypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerClientReviewsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerClubServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerGroupTrainingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerServiceRegistrationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerTrainingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerTrainingTypesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,11 +388,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager\ManagerReportsPage.xaml">
+    <Page Include="Manager\ManagerAddEditClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager\ManagerSalesPage.xaml">
+    <Page Include="Manager\ManagerAddEditGroupTrainingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerAddEditIndividualTrainingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerAddEditMembershipSalePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,7 +408,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Manager\ManagerFeedbackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerGroupTrainingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerMembershipSalesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerTrainingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Coach\TrainerClientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -346,15 +468,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\" />
-    <Folder Include="Coach\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -8,15 +8,28 @@
 
     <Grid Background="{StaticResource BackgroundBrush}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
             <TextBlock Text="Сотрудники" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,20"/>
+
+            <!-- Поиск -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBox x:Name="SearchEmployeeName" Width="200"
+                         Text="Поиск по имени"
+                         GotFocus="SearchEmployeeName_GotFocus"
+                         LostFocus="SearchEmployeeName_LostFocus"
+                         TextChanged="SearchEmployeeName_TextChanged"
+                         Foreground="Gray"
+                         VerticalAlignment="Center"
+                         Margin="0,0,10,0"/>
+            </StackPanel>
 
             <!-- Таблица -->
             <DataGrid x:Name="EmployeesDataGrid"
-          AutoGenerateColumns="False"
-          Style="{StaticResource DataGridStyle}"
-          SelectionChanged="EmployeesDataGrid_SelectionChanged"
-          Height="250"
-          Width="Auto">
+                      AutoGenerateColumns="False"
+                      Style="{StaticResource DataGridStyle}"
+                      SelectionChanged="EmployeesDataGrid_SelectionChanged"
+                      Height="250"
+                      Width="Auto">
                 <DataGrid.ColumnHeaderStyle>
                     <StaticResource ResourceKey="DataGridColumnHeaderStyle"/>
                 </DataGrid.ColumnHeaderStyle>
@@ -34,7 +47,8 @@
             </DataGrid>
 
 
-            <!-- Поля ввода -->
+
+<!-- Поля ввода -->
             <StackPanel Orientation="Vertical" Margin="0,20,0,0">
                 <TextBlock Text="Имя:" Style="{StaticResource LabelTextStyle}"/>
                 <TextBox x:Name="FirstNameBox" Width="200"/>
@@ -68,6 +82,7 @@
                 <Button Content="Удалить" Click="DeleteEmployee_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
                 <Button Content="Назад" Click="BackToAdmin_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
             </StackPanel>
+
         </StackPanel>
     </Grid>
 </Page>

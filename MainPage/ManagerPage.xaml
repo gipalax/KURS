@@ -6,17 +6,41 @@
 
     <Grid Style="{StaticResource MainGridStyle}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Страница менеджера" Style="{StaticResource HeaderTextStyle}"/>
 
-            <!-- Кнопки навигации -->
-            <Button Content="Клиенты" Click="Clients_Click" Style="{StaticResource ButtonStyle}"/>
-            <Button Content="Продажи абонементов" Click="Sales_Click" Style="{StaticResource ButtonStyle}"/>
-            <!--<Button Content="Расписание тренировок" Click="Schedule_Click" Style="{StaticResource ButtonStyle}"/>
-            <Button Content="Отчёты" Click="Reports_Click" Style="{StaticResource ButtonStyle}"/>-->
+            <TextBlock Text="Страница менеджера"
+                       Style="{StaticResource HeaderTextStyle}"
+                       Margin="0,0,0,20" />
+
+            <!-- Кнопка перехода к клиентам -->
+            <Button Content="Клиенты"
+                    Click="ClientsPage_Click"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0,5" />
+
+            
+            <Button Content="Продажи абонементов"
+                    Click="ManagerMembershipSalesPage_Click"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0,5" />
+
+            <Button Content="Запись на тренировки"
+                    Click="TrainingsPage_Click"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0,5" />
+
+            <Button Content="Обратная связь / отзывы"
+                    Click="FeedbackPage_Click"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0,5" />
+            
 
             <!-- Кнопка выхода -->
-            <Button Content="Выйти" Click="BackToAuth_Click" 
-                    Style="{StaticResource ButtonStyle}" Width="200" Margin="0,20"/>
+            <Button Content="Выйти"
+                    Click="Exit_Click"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="200"
+                    Margin="0,20,0,0" />
+
         </StackPanel>
     </Grid>
 </Page>

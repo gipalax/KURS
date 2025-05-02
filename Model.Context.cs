@@ -43,6 +43,7 @@ namespace KP
         public virtual DbSet<MembershipSale> MembershipSales { get; set; }
         public virtual DbSet<ProvidedService> ProvidedServices { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TrainingType> TrainingTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }

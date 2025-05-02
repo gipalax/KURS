@@ -3,13 +3,20 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KP"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientPage">
 
-    <Grid>
-        <TextBlock Text="Страница клиента" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"/>
-        <Button Content="Вернуться к авторизации" Click="BackToAuthButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid Style="{StaticResource MainGridStyle}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Страница клиента" Style="{StaticResource HeaderTextStyle}"/>
+
+            <!--<Button Content="Виды тренировок" Click="GroupTrainings_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Услуги клуба" Click="ClubServices_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Отзывы" Click="Reviews_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Абонементы" Click="Memberships_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Клубы" Click="Clubs_Click" Style="{StaticResource ButtonStyle}"/>-->
+
+            <Button Content="Выйти" Click="BackToAuthButton_Click" Style="{StaticResource ButtonStyle}" Width="200" Margin="20,20,0,0"/>
+        </StackPanel>
     </Grid>
 </Page>

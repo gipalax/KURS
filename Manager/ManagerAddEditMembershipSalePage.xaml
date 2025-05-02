@@ -1,0 +1,26 @@
+﻿<Page x:Class="KP.ManagerAddEditMembershipSalePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Добавить/Редактировать продажу абонемента">
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
+            <TextBlock Text="Продажа абонемента" Style="{StaticResource HeaderTextStyle}" Margin="0,0,0,20"/>
+
+            <TextBlock Text="ID клиента:"/>
+            <TextBox x:Name="ClientIDBox"/>
+
+            <TextBlock Text="ID абонемента:" Margin="0,10,0,0"/>
+            <TextBox x:Name="MembershipIDBox"/>
+
+            <TextBlock Text="Дата продажи:" Margin="0,10,0,0"/>
+            <DatePicker x:Name="SaleDatePicker"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Content="Сохранить" Click="SaveButton_Click" Style="{StaticResource ButtonStyle}" Width="120"/>
+                <Button Content="Отмена" Click="CancelButton_Click" Style="{StaticResource ButtonStyle}" Width="120" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
