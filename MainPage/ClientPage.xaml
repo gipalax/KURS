@@ -10,11 +10,12 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Страница клиента" Style="{StaticResource HeaderTextStyle}"/>
 
-            <!--<Button Content="Виды тренировок" Click="GroupTrainings_Click" Style="{StaticResource ButtonStyle}"/>
+
+            <Button Content="Абонементы" Click="Memberships_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Клубы" Click="Clubs_Click" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Виды тренировок" Click="GroupTrainings_Click" Style="{StaticResource ButtonStyle}"/>
             <Button Content="Услуги клуба" Click="ClubServices_Click" Style="{StaticResource ButtonStyle}"/>
             <Button Content="Отзывы" Click="Reviews_Click" Style="{StaticResource ButtonStyle}"/>
-            <Button Content="Абонементы" Click="Memberships_Click" Style="{StaticResource ButtonStyle}"/>
-            <Button Content="Клубы" Click="Clubs_Click" Style="{StaticResource ButtonStyle}"/>-->
 
             <Button Content="Выйти" Click="BackToAuthButton_Click" Style="{StaticResource ButtonStyle}" Width="200" Margin="20,20,0,0"/>
         </StackPanel>

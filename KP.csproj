@@ -84,8 +84,23 @@
     <Compile Include="Client.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Client\ClientClubServicesPage.xaml.cs">
+      <DependentUpon>ClientClubServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientClubsPage.xaml.cs">
+      <DependentUpon>ClientClubsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientGroupTrainingsPage.xaml.cs">
+      <DependentUpon>ClientGroupTrainingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClientReview.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientMembershipsPage.xaml.cs">
+      <DependentUpon>ClientMembershipsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientReviewsPage.xaml.cs">
+      <DependentUpon>ClientReviewsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Club.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -237,14 +252,11 @@
     <Compile Include="RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Coach\TrainerClientsPage.xaml.cs">
       <DependentUpon>TrainerClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TrainingType.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -265,6 +277,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Accountant\AccountantServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Client\ClientClubServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Client\ClientClubsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Client\ClientGroupTrainingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Client\ClientMembershipsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Client\ClientReviewsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -468,12 +500,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
